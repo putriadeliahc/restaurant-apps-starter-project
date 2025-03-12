@@ -5,13 +5,9 @@ class HeroComponents extends HTMLElement {
 
   render() {
     this.innerHTML = `
-        <div class="jumbotron" id="jumbotron">
-      <picture class="hero_image">
-        <source srcset="./images/hero-image_3-small.jpg" media="(max-width: 767px)">
-        <source srcset="./images/hero-image_3-large.jpg" media="(min-width: 768px)">
-        <img src="./images/hero-image_3-large.jpg" alt="jumbotron">
-      </picture>
-    </div>
+         <div class=" jumbotron" id="jumbotron">
+        <img src="./images/heros/hero-image_3.jpg" width="100%" alt="jumbotron" />
+        </div>
         `;
   }
 }

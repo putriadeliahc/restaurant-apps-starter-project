@@ -1,36 +1,9 @@
-/* eslint-disable prefer-destructuring */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
-const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
-const imageminMozjpeg = require('imagemin-mozjpeg');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      minSize: 20000,
-      maxSize: 70000,
-      minChunks: 1,
-      maxAsyncRequests: 30,
-      maxInitialRequests: 30,
-      automaticNameDelimiter: '~',
-      enforceSizeThreshold: 50000,
-      cacheGroups: {
-        defaultVendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
-        },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true,
-        },
-      },
-    },
-  },
   entry: {
     app: path.resolve(__dirname, 'src/scripts/index.js'),
   },
@@ -59,18 +32,11 @@ module.exports = {
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/templates/index.html'),
     }),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      // openAnalyzer: false,
-    }),
     new CopyWebpackPlugin({
       patterns: [
         {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
-          globOptions: {
-            ignore: ['**/images/**'],
-          },
         },
       ],
     }),
@@ -91,14 +57,6 @@ module.exports = {
             cacheName: 'restaurant-image-api',
           },
         },
-      ],
-    }),
-    new ImageminWebpackPlugin({
-      plugins: [
-        imageminMozjpeg({
-          quality: 50,
-          progressive: true,
-        }),
       ],
     }),
   ],

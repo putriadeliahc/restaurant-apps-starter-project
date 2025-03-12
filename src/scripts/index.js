@@ -6,8 +6,6 @@ import './views/components/aside-info';
 import './views/components/footer';
 import './views/components/hero';
 import './views/components/header';
-import 'lazysizes';
-import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const app = new App({
   button: document.querySelector('#hamburgerButton'),

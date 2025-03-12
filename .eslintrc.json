@@ -17,10 +17,5 @@
         "no-underscore-dangle": 0,
         "no-restricted-globals": 0,
         "linebreak-style": 0
-    },
-    "globals": {
-        "Feature": "readonly",
-        "Scenario": "readonly",
-        "locate": "readonly"
-    }
+      }
 }
